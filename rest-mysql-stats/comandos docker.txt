@@ -1,0 +1,25 @@
+POST /stats
+
+{
+	device_id: 1,
+	event: 'questoes',
+	params: '{ id : 1 }',
+	time: '2016-06-02 12:00:00'
+}
+
+docker build -t rest-mysql-stats .
+
+docker push matheusrodrigues/rest-mysql-stats
+
+docker run \
+    --restart=always \
+    --name rest-mysql-stats \
+	-e DATABASE_IP='192.168.0.253' \
+	-e DATABASE_DIALECT='mysql' \
+    -e DATABASE_USERNAME='rest-mysql-stats' \
+    -e DATABASE_PASSWORD='rest-mysql-stats' \
+    -e DATABASE_NAME='rest-mysql-stats' \
+    -e DATABASE_HOST='mysql' \
+    -e DATABASE_PORT='3306' \
+	-p 80:80 \
+    -d matheusrodrigues/rest-mysql-stats

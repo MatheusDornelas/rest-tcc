@@ -1,0 +1,21 @@
+POST /stats
+
+{
+	device_id: 1,
+	event: 'questoes',
+	params: '{ id : 1 }',
+	time: '2016-06-02 12:00:00'
+}
+
+docker build -t rest-mysql-stats .
+
+docker push matheusrodrigues/rest-mysql-stats
+
+docker run \
+    --restart=always \
+    --name rest-mongo-stats \
+	-e DATABASE_IP='192.168.0.253' \
+    -e DATABASE_NAME='oabdebolso' \
+    -e DATABASE_PORT='3306' \
+	-p 27017:27017 \
+    -d matheusrodrigues/rest-mongo-stats

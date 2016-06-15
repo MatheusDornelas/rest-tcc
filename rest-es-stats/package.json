@@ -1,0 +1,22 @@
+{
+  "name": "rest-es-stats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "pm2 start index.js -i 0",
+    "stop": "pm2 stop index"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "base-x": "^1.0.4",
+    "body-parser": "^1.15.1",
+    "elasticsearch": "^9.0.2",
+    "express": "^4.13.4",
+    "node-uuid": "^1.4.7",
+    "uuid": "^2.0.1",
+    "uuid-base62": "^0.1.0"
+  }
+}

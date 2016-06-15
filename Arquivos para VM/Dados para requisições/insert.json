@@ -1,0 +1,6 @@
+{
+	"DeviceId":${__eval(${DEVICE_ID})},
+	"event":"${__eval(${EVENT})}",
+	"param":${__eval(${PARAM})},
+	"date":"${__eval(${TIMESTAMP})}"
+}
